@@ -1,6 +1,6 @@
 from AddStu import AddStu
 from PrintAll import PrintAll
-from client_demo import SocketClient
+from SocketClient import SocketClient
 
 host = "127.0.0.1"
 port = 20001

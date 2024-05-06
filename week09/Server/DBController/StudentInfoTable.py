@@ -1,4 +1,4 @@
-from DBConnection import DBConnection
+from DBController.DBConnection import DBConnection
 
 class StudentInfoTable:
     def insert_a_student(self, name):

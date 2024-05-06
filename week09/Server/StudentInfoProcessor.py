@@ -1,6 +1,6 @@
 
-from StudentInfoTable import StudentInfoTable
-from SubjectInfoTable import SubjectInfoTable
+from week09.Server.DBController.StudentInfoTable import StudentInfoTable
+from week09.Server.DBController.SubjectInfoTable import SubjectInfoTable
 
 class StudentInfoProcessor:
     def __init__(self, parameters={}):

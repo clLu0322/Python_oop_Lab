@@ -1,18 +1,27 @@
-from DBConnection import DBConnection
+from DBController.DBConnection import DBConnection
 
 class SubjectInfoTable:
     def __init__(self, parameter={}):
         self.student_dict = parameter
-        
-    def insert_student_all_subject(self, stu_id):
+
+    def insert_a_subject(self, stu_id, subject, score):
+        command = f"INSERT INTO subject_info (stu_id, subject, score) VALUES ('{stu_id}', '{subject}', {score});"
         with DBConnection() as connection:
             cursor = connection.cursor()
-            for subject, score in self.student_dict.get("scores" , {}).items():
+            cursor.execute(command)
+            connection.commit()
+        
+    def insert_student_all_subject(self, stu_id):
+        #插入所有學生科目
+        with DBConnection() as connection:
+            cursor = connection.cursor()
+            for subject, score in self.student_dict['scores'].items():
                 command = f"INSERT INTO subject_info (stu_id, subject, score) VALUES ('{stu_id}', '{subject}', {score});"
                 cursor.execute(command)
             connection.commit()
     
     def get_student_all_subject(self, stu_id):
+        #找到學生所有科目，回傳字典
         command = f"SELECT * FROM subject_info WHERE stu_id='{stu_id}';"
         with DBConnection() as connection:
             cursor = connection.cursor()
@@ -28,6 +37,11 @@ class SubjectInfoTable:
             cursor.execute(command)
             connection.commit()
     
-    def update_student_subject(self, stu_id):
+    def update_student_subject(self, stu_id, subject, score):
         #更新學生科目
-        command = f"UPDATE subject_info SET subject='{self.student_dict['scores'].keys()}' WHERE stu_id = {stu_id}"
+        command = f"UPDATE subject_info SET score='{score}' WHERE stu_id='{stu_id}' AND subject='{subject}';"
+        with DBConnection() as connection:
+            cursor = connection.cursor()
+            cursor.execute(command)
+            connection.commit()
+    

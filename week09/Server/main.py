@@ -1,6 +1,6 @@
 from SocketServer import SocketServer
-from DBConnection import DBConnection
-from DBInitializer import DBInitializer
+from DBController.DBConnection import DBConnection
+from DBController.DBInitializer import DBInitializer
 
 host = "127.0.0.1"
 port = 20001

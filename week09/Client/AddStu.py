@@ -1,5 +1,5 @@
 class AddStu:
-    def __init__(self,socket):
+    def __init__(self, socket):
         self.parameters = {'name': "", 'scores': {}}
         self.socket = socket
 

@@ -1,21 +1,18 @@
 from DBController.DBConnection import DBConnection
 
 class SubjectInfoTable:
-    def __init__(self, parameter={}):
-        self.student_dict = parameter
-
-    def insert_a_subject(self, stu_id, subject, score):
-        command = f"INSERT INTO subject_info (stu_id, subject, score) VALUES ('{stu_id}', '{subject}', {score});"
-        with DBConnection() as connection:
-            cursor = connection.cursor()
-            cursor.execute(command)
-            connection.commit()
+    # def insert_a_subject(self, stu_id, subject, score):
+    #     command = f"INSERT INTO subject_info (stu_id, subject, score) VALUES ('{stu_id}', '{subject}', {score});"
+    #     with DBConnection() as connection:
+    #         cursor = connection.cursor()
+    #         cursor.execute(command)
+    #         connection.commit()
         
-    def insert_student_all_subject(self, stu_id):
+    def insert_student_all_subject(self, stu_id, parameter):
         #插入所有學生科目
         with DBConnection() as connection:
             cursor = connection.cursor()
-            for subject, score in self.student_dict['scores'].items():
+            for subject, score in parameter['scores'].items():
                 command = f"INSERT INTO subject_info (stu_id, subject, score) VALUES ('{stu_id}', '{subject}', {score});"
                 cursor.execute(command)
             connection.commit()
@@ -31,6 +28,7 @@ class SubjectInfoTable:
         return return_message
     
     def del_student_all_subject(self, stu_id):
+        #刪除學生所有科目
         command = f"DELETE FROM subject_info WHERE stu_id='{stu_id}';"
         with DBConnection() as connection:
             cursor = connection.cursor()

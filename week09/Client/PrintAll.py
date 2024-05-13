@@ -1,5 +1,4 @@
 class PrintAll:
-    
     def __init__(self, socket):
         self.socket = socket
         self.socket.send_command("show", {})

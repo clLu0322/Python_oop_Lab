@@ -4,8 +4,11 @@ from DelStu import DelStu
 from PrintAll import PrintAll
 from SocketClient import SocketClient
 
+host = "127.0.0.1"
+port = 20001
+
 def main():
-    socket = SocketClient()
+    socket = SocketClient(host, port)
     action_list = {
                     "add": AddStu,
                     "del": DelStu,

@@ -5,7 +5,7 @@ class PrintAll:
     def __init__(self, parameters={}):
         self.parameters = parameters
         self.student_table = StudentInfoTable()
-        self.subject_table = SubjectInfoTable(parameters)
+        self.subject_table = SubjectInfoTable()
 
     def execute(self):
         student_name_list = self.student_table.get_all_student()

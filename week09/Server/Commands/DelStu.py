@@ -5,7 +5,7 @@ class DelStu:
     def __init__(self, parameters={}):
         self.parameters = parameters
         self.student_table = StudentInfoTable()
-        self.subject_table = SubjectInfoTable(parameters)
+        self.subject_table = SubjectInfoTable()
     
     def execute(self):
         stu_id = self.student_table.select_a_student(self.parameters["name"])

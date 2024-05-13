@@ -22,7 +22,6 @@ necessary_table_to_create = {
         """
 }
 
-
 class DBInitializer:
     def execute(self):
         existing_tables = self.get_existing_tables()

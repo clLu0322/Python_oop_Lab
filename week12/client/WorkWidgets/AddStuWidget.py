@@ -34,7 +34,7 @@ class AddStuWidget(QtWidgets.QWidget):
         self.setLayout(self.layout)
 
     def set_widget_position(self):
-        self.layout.addWidget(self.hint_text, 0, 3, 2, 4)
+        self.layout.addWidget(self.hint_text, 0, 3, 3, 1)
         self.layout.addWidget(self.header_label, 0, 0, 1, 2)
         self.layout.addWidget(self.name_label, 1, 0, 1, 1)
         self.layout.addWidget(self.subject_Label, 2, 0, 1, 1)
@@ -44,18 +44,18 @@ class AddStuWidget(QtWidgets.QWidget):
         self.layout.addWidget(self.editor_label_score, 3, 1, 1, 1)
         self.layout.addWidget(self.button_query, 1, 2, 1, 1)
         self.layout.addWidget(self.button_add, 3, 2, 1, 1)
-        self.layout.addWidget(self.button_send,  5, 3, 1, 5)
+        self.layout.addWidget(self.button_send,  5, 3, 1, 1)
     
     def set_grid(self):
         self.layout.setColumnStretch(0, 1)
-        self.layout.setColumnStretch(1, 10)
+        self.layout.setColumnStretch(1, 4)
         self.layout.setColumnStretch(2, 1)
-        self.layout.setColumnStretch(3, 3)
-        self.layout.setRowStretch(0, 3)
-        self.layout.setRowStretch(1, 1)
-        self.layout.setRowStretch(2, 1)
-        self.layout.setRowStretch(3, 1)
-        self.layout.setRowStretch(4, 4)
+        self.layout.setColumnStretch(3, 4)
+        self.layout.setRowStretch(0, 1)
+        self.layout.setRowStretch(1, 5)
+        self.layout.setRowStretch(2, 5)
+        self.layout.setRowStretch(3, 5)
+        self.layout.setRowStretch(4, 5)
         self.layout.setRowStretch(5, 1)   
 
     def set_widget_function(self):

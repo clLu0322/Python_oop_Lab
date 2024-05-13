@@ -15,7 +15,7 @@ class AddStu:
             self.parameters["name"] = self.name
             self.input_subject()
         else:
-            #DEMO 沒說明要幹嘛
+            print("  The name is already exists")
             return
     
     def input_subject(self):

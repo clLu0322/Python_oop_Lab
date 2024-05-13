@@ -1,5 +1,3 @@
-
-
 class DelStu:
     def __init__(self,socket):
         self.socket = socket
@@ -12,13 +10,12 @@ class DelStu:
         self.socket.send_command("query", {"name": name})
         #詢問名字是否重複
         if self.socket.wait_response()["status"] == 'OK': 
-            self.delname(name)
+            self.conform_del(name)
         else:
-            # demo 沒說明要幹嘛
             print("  The name is not found")
             return
         
-    def delname(self, name):
+    def conform_del(self, name):
         if input("Confirm to delete (y/n): ").lower() == "y":
             self.socket.send_command("delete",{"name": name})
             if self.socket.wait_response()["status"] == "OK":
@@ -26,5 +23,4 @@ class DelStu:
             else:
                 print("\tDelete fail")
         else:
-            # demo 沒說明要幹嘛
-            print("不刪別浪費我時間")
+            print(" Undelete")

@@ -39,8 +39,6 @@ class StudentInfoTable:
         all_student_name = [row[0] for row in record_from_db]
         return all_student_name
     
-    
-
     def update_a_student(self, stu_id, name):
         #更新學生姓名
         command = f"UPDATE student_info SET name='{name}' WHERE stu_id='{stu_id}';"

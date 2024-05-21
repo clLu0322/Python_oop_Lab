@@ -2,7 +2,7 @@ from PyQt6 import QtWidgets, QtGui, QtCore
 from PyQt6.QtGui import QIntValidator
 import json
 from WorkWidgets.WidgetComponents import LabelComponent, LineEditComponent, ButtonComponent
-from ServerController import ExecuteCommand
+from ServiceController import ExecuteCommand
 
 class AddStuWidget(QtWidgets.QWidget):
     def __init__(self, socket):

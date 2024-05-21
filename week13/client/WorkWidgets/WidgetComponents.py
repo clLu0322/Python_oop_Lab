@@ -1,5 +1,4 @@
 from PyQt6 import QtWidgets, QtCore, QtGui
-from PyQt6.QtCore import Qt
 
 class LabelComponent(QtWidgets.QLabel):
     def __init__(self, font_size, content, color="black"):
@@ -29,4 +28,3 @@ class TextEditComponent(QtWidgets.QTextEdit):
     def __init__(self, font_size=16):
         super().__init__()
         self.setFont(QtGui.QFont("Arial", font_size))
-

@@ -17,14 +17,3 @@ class SocketClient:
         raw_data = data.decode()
         print(f"    The client received data => {raw_data}")
         return json.loads(raw_data)
-
-"""
-    if __name__ == '__main__':
-    client = SocketClient(host, port)
-
-    keep_going = True
-    while keep_going:
-        command = input(">>>")
-        client.send_command(command)
-        keep_going = client.wait_response() 
-"""

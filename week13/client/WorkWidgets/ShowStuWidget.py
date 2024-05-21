@@ -1,6 +1,6 @@
-from PyQt6 import QtWidgets, QtGui, QtCore
+from PyQt6 import QtWidgets
 from WorkWidgets.WidgetComponents import LabelComponent, TextEditComponent
-from ServerController import ExecuteCommand
+from ServiceController import ExecuteCommand
 import json
 
 
@@ -30,12 +30,12 @@ class ShowStuWidget(QtWidgets.QWidget):
         student_dict = result['message']['parameters']
         
         self.textedit.clear()
-        display_text = "\n===== student list =====\n"
+        text = "\n====== student list ======\n"
         for name, dict in student_dict.items():
-            display_text += f"Name:{name}\n"
+            text += f"Name:{name}\n"
             for subject, score in dict["scores"].items():
-                display_text += f"   subject: {subject}, score:{score}\n"
-            display_text += "\n"
-        display_text += "======================"
-        self.textedit.setText(display_text)
+                text += f"    subject: {subject}, score:{score}\n"
+            text += "\n"
+        text += "======================"
+        self.textedit.setText(text)
         self.textedit.setReadOnly(True)

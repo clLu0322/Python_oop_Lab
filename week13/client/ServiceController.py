@@ -1,4 +1,4 @@
-from PyQt6 import QtWidgets, QtGui, QtCore
+from PyQt6 import QtCore
 from PyQt6.QtCore import pyqtSignal
 import json
 

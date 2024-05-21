@@ -79,7 +79,9 @@ class AddStuWidget(QtWidgets.QWidget):
         self.set_button_status('query', False)
         self.set_button_status('add', False)
         self.set_button_status('send', False)
-
+        self.editor_label_name.setText("Name")
+        self.editor_label_subject.setText("Subject")
+        self.editor_label_score.setText("")
 
     def query_action(self):
         #如果沒輸入，提示使用者
@@ -130,7 +132,6 @@ class AddStuWidget(QtWidgets.QWidget):
             self.student_dict = {"name": "", "scores": {}}
             #設定部件狀態
             self.widget_status_init()
-            self.set_button_status('query', True)
         else:
             self.hint_text.setText(f"Send {self.student_dict} fail")
             
@@ -160,3 +161,8 @@ class AddStuWidget(QtWidgets.QWidget):
     
     def score_press_event(self, event):
         self.editor_label_score.clear()
+
+    def load(self):
+        self.widget_status_init()
+        self.hint_text.setText("Welcome")
+        print("\nAdd Student\n")

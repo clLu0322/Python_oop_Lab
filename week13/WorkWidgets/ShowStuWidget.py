@@ -14,10 +14,9 @@ class ShowStuWidget(QtWidgets.QWidget):
         header_label = LabelComponent(20, "Show Student")
         self.textedit = TextEditComponent()
 
-        self.show_action()
-
         layout.addWidget(header_label, stretch=1)
         layout.addWidget(self.textedit, stretch=8)
+
         self.setLayout(layout)
     
     def show_action(self):
@@ -39,3 +38,7 @@ class ShowStuWidget(QtWidgets.QWidget):
         text += "======================"
         self.textedit.setText(text)
         self.textedit.setReadOnly(True)
+    
+    def load(self):
+        self.show_action()
+        print("\nShow All\n")

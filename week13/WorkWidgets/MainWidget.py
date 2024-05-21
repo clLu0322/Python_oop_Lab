@@ -62,4 +62,4 @@ class FunctionWidget(QtWidgets.QStackedWidget):
     def update_widget(self, name):
         self.setCurrentIndex(self.widget_dict[name])
         current_widget = self.currentWidget()
-        #current_widget.load()
+        current_widget.load()

@@ -30,11 +30,10 @@ class TextEditComponent(QtWidgets.QTextEdit):
         self.setFont(QtGui.QFont("Arial", font_size))
 
 class ComboBoxConponent(QtWidgets.QComboBox):
-    def __init__(self, addItem = []):
+    def __init__(self):
         super().__init__()
-        self.resize(300, 200)
-        self.addItems(addItem)   # 加入四個選項
-        self.setGeometry(10,10,200,30)
+        # self.resize(300, 200)
+        # self.setGeometry(10,10,200,30)
 
 class MessageBoxComponent(QtWidgets.QMessageBox):
     def __init__(self, message="你確定要刪除嗎？", title="確認",font_size=16):
@@ -57,4 +56,20 @@ class RadioButton(QtWidgets.QRadioButton):
         super().__init__()
         self.setText(text)
         self.setFont(QtGui.QFont("Arial", font_size))
+
+class ScrollAreaComponent(QtWidgets.QScrollArea):
+    def __init__(self, content):
+        super().__init__()
+        self.setWidgetResizable(True)
+        self.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
+
+        self.scroll_area_widget = QtWidgets.QWidget()  # 创建一个QWidget作为滚动区域的窗口部件
+        self.scroll_area_layout = QtWidgets.QVBoxLayout(self.scroll_area_widget)  # 创建一个垂直布局管理器
+        self.scroll_area_layout.addWidget(content)  # 将传入的内容添加到垂直布局中
+
+        self.setWidget(self.scroll_area_widget)  # 将滚动区域窗口部件设置为滚动区域的可滚动部件
+
+
+
+
         

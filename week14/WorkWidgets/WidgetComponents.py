@@ -8,6 +8,10 @@ class LabelComponent(QtWidgets.QLabel):
         self.setStyleSheet(f"color: {color};")
         self.setFont(QtGui.QFont("Arial", pointSize=font_size, weight=500))
         self.setText(content)
+    
+    def setText_Color(self, text, color):
+        self.setText(text)
+        self.setStyleSheet(f"color: {color}")
 
 class LineEditComponent(QtWidgets.QLineEdit):
     def __init__(self, default_content="", length=10, width=200, font_size=16):

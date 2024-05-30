@@ -94,7 +94,7 @@ class AddStuWidget(QtWidgets.QWidget):
 
     def query_process_result(self, result):
         result = json.loads(result)
-        if result['message']['status'] == 'Fail':
+        if result['status'] == 'Fail':
             self.set_editor_status('name', False)
             self.set_editor_status('subject', True)
             self.set_editor_status('score', True)
@@ -126,7 +126,7 @@ class AddStuWidget(QtWidgets.QWidget):
         
     def send_process_result(self, result):
         result = json.loads(result)
-        if result['message']['status'] == 'OK':
+        if result['status'] == 'OK':
             self.hint_text.setText(f"Send {self.student_dict} success")
             #reset student_dict
             self.student_dict = {"name": "", "scores": {}}

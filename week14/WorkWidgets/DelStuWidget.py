@@ -58,11 +58,11 @@ class DelStuWidget(QtWidgets.QWidget):
 
     def query_process_result(self, result):
         result = json.loads(result)
-        if result['message']['status'] == 'OK':
+        if result['status'] == 'OK':
             self.hint.clear()
             self.name = self.name_editor_label.text().strip()
             text = f"name: {self.name}\n"
-            for subject, score in result['message']['scores'].items():
+            for subject, score in result['scores'].items():
                 text += f"    {subject}: {score}\n"
             text += "\n"
             self.hint.setText(text)
@@ -84,7 +84,7 @@ class DelStuWidget(QtWidgets.QWidget):
         result = json.loads(result) 
         self.init_status()
         self.hint.clear()
-        if result['message']['status'] == 'OK':
+        if result['status'] == 'OK':
             self.hint.setText(f"{self.name} is already delete")
         else:
             self.hint.setText(f"error!! {self.name} is not delete")

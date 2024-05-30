@@ -15,5 +15,5 @@ class ExecuteCommand(QtCore.QThread):
     def run(self):
         result_dict = dict()
         self.socket.send_command(self.command, self.parameters)
-        result_dict['message'] = self.socket.wait_response()
+        result_dict = self.socket.wait_response()
         self.return_sig.emit(json.dumps(result_dict))

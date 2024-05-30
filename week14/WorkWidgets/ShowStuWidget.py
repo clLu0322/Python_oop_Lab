@@ -27,7 +27,7 @@ class ShowStuWidget(QtWidgets.QWidget):
 
     def print_data(self, result):
         result = json.loads(result)
-        student_dict = result['message']['parameters']
+        student_dict = result['parameters']
         
         self.label.clear()
         text = "\n====== student list ======\n"

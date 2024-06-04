@@ -1,27 +1,25 @@
 from PyQt6 import QtWidgets
-from WorkWidgets.WidgetComponents import LabelComponent, TextEditComponent, ScrollAreaComponent
+from WorkWidgets.WidgetComponents import LabelComponent, ScrollAreaComponent
 from ServiceController import ExecuteCommand
 import json
 
 
 class ShowStuWidget(QtWidgets.QWidget):
-    def __init__(self, socket):
+    def __init__(self):
         super().__init__()
-        self.socket = socket
         self.setObjectName("show_stu_widget")
         layout = QtWidgets.QVBoxLayout()
-
-        header_label = LabelComponent(20, "Show Student")
-        self.label = LabelComponent(14, " ")
+        self.label = LabelComponent(14, "", "balck")
+        self.label.set_font_weight(1000)
+        self.label.set_vertical_alignment("top")
         self.scrollarea = ScrollAreaComponent(self.label)
 
-        layout.addWidget(header_label, stretch=1)
-        layout.addWidget(self.scrollarea, stretch=8)
+        layout.addWidget(self.scrollarea, stretch=1)
 
         self.setLayout(layout)
     
     def show_action(self):
-        self.send_command = ExecuteCommand(self.socket, "show")
+        self.send_command = ExecuteCommand("show")
         self.send_command.start()
         self.send_command.return_sig.connect(self.print_data)
 
@@ -30,7 +28,7 @@ class ShowStuWidget(QtWidgets.QWidget):
         student_dict = result['parameters']
         
         self.label.clear()
-        text = "\n====== student list ======\n"
+        text = "====== student list ======\n"
         for name, dict in student_dict.items():
             text += f"Name:{name}\n"
             for subject, score in dict["scores"].items():
@@ -38,8 +36,6 @@ class ShowStuWidget(QtWidgets.QWidget):
             text += "\n"
         text += "======================"
         self.label.setText(text)
-        # self.textedit.setReadOnly(True)
     
     def load(self):
         self.show_action()
-        print("\nShow All\n")

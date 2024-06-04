@@ -8,7 +8,7 @@ class ModifyStu:
         self.subject_table = SubjectInfoTable()
     
     def execute(self):
-        stu_id = self.student_table.insert_a_student(self.parameters['name'])
+        stu_id = self.student_table.select_a_student(self.parameters['name'])
         student_subjects = self.subject_table.get_student_all_subject(stu_id)
         for subject, score in self.parameters['scores'].items():
             if subject in student_subjects:
